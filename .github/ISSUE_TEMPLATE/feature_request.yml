@@ -1,0 +1,44 @@
+name: 功能建议
+description: 想要的新功能或交互优化
+title: "[建议] "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢建议！提交前请先搜索一下已有的 issue，避免重复提交。
+
+  - type: input
+    id: version
+    attributes:
+      label: 当前使用的版本号
+      placeholder: "0.0.1"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: 操作系统
+      options:
+        - Windows
+        - macOS
+        - 都需要
+    validations:
+      required: true
+
+  - type: textarea
+    id: feature
+    attributes:
+      label: 想要什么功能
+      description: 具体说明希望怎么用、放在哪里
+    validations:
+      required: true
+
+  - type: textarea
+    id: scenario
+    attributes:
+      label: 使用场景
+      description: 什么情况下需要它？
+    validations:
+      required: true

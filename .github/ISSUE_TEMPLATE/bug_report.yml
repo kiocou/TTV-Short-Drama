@@ -1,0 +1,120 @@
+name: 问题反馈 (Bug)
+description: 播放失败、卡顿、黑屏、无声、搜索异常、自动更新、安装包等问题
+title: "[问题] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢反馈！请尽量填写完整并附上截图与剧名 / 集数，方便更快定位问题。
+        提交前请先到 [Releases](https://github.com/kiocou/TTV-Short-Drama/releases/latest) 确认是否为最新版本。
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: 提交前确认
+      options:
+        - label: 我已更新到最新版本，问题仍然存在
+          required: true
+        - label: 我已搜索过已有的 issue，没有相同的问题
+          required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: 程序版本号
+      description: 在标题栏或「设置 → 关于」查看，例如 0.0.1
+      placeholder: "0.0.1"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: 操作系统与架构
+      options:
+        - Windows 11 (x64)
+        - Windows 10 (x64)
+        - Windows 11 (ARM64)
+        - macOS (Apple Silicon M 系列)
+        - macOS (Intel x64)
+    validations:
+      required: true
+
+  - type: input
+    id: os-detail
+    attributes:
+      label: 系统版本 / 显卡 (选填)
+      description: 播放黑屏、卡顿、补帧异常时请填写，例如 "Win11 24H2，RTX 5060" 或 "macOS 15，M2 Pro"
+      placeholder: "Win11 24H2，NVIDIA RTX 5060"
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: 问题类型
+      options:
+        - 播放失败 / 无法起播
+        - 卡顿 / 缓冲 / 加载慢
+        - 黑屏 / 有声音没画面
+        - 没声音 / 音画不同步
+        - 独立 MPV / 补帧异常
+        - 目录 / 搜索 / 选集 / 下一集
+        - 自动更新 / 安装包问题
+        - 界面 / 快捷键 / 全屏 / 画中画
+        - 其他
+    validations:
+      required: true
+
+  - type: input
+    id: series
+    attributes:
+      label: 剧名与频道 (选填)
+      description: 和具体剧集有关的问题请填写频道（短剧/漫剧/动漫）与剧名
+      placeholder: "例如：短剧 - ×××"
+
+  - type: input
+    id: episode
+    attributes:
+      label: 第几集 / 出问题的时间点 (选填)
+      description: 例如 "第 5 集，00:45"；每集都会出现就写 "每集"
+      placeholder: "第 5 集，00:45"
+
+  - type: textarea
+    id: description
+    attributes:
+      label: 问题描述
+      description: 发生了什么？你期望的结果是什么？
+      placeholder: |
+        现象：
+        期望：
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: 复现步骤
+      description: 怎样操作能让问题再次出现？
+      placeholder: |
+        1. 打开「……」
+        2. 点击……
+        3. 出现……
+    validations:
+      required: true
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: 截图 / 日志 (选填)
+      description: 可直接拖拽截图到输入框，或在「设置 → 诊断日志」导出相关信息
+      placeholder: 把截图拖到这里
+
+  - type: dropdown
+    id: network
+    attributes:
+      label: 网络环境 (选填)
+      options:
+        - 没有开 VPN / 代理
+        - 开了 VPN / 代理 (Clash、v2rayN 等)
+        - 在国外 / 港澳台
+        - 不清楚
